@@ -6,13 +6,13 @@ class TestLoginuserone():
     def setup_method(self):
         self.driver = webdriver.Firefox()
         self.vars = {}
+        self.driver.get("http://acme.qualityhouse.com/build3/index.php")
+        self.driver.set_window_size(1920, 1080)
 
     def teardown_method(self):
         self.driver.quit()
 
     def test_loginuserone(self):
-        self.driver.get("http://acme.qualityhouse.com/build3/index.php")
-        self.driver.set_window_size(1920, 1080)
         self.driver.find_element(By.LINK_TEXT, "Login").click()
         self.driver.find_element(By.ID, "username").send_keys("student1")
         self.driver.find_element(By.NAME, "userpass").send_keys("stpass1")
@@ -22,8 +22,6 @@ class TestLoginuserone():
         assert self.driver.find_element(By.CSS_SELECTOR, "a[href='index.php?page=login']").is_displayed(), "User is not logged out."
 
     def test_loginusertwo(self):
-        self.driver.get("http://acme.qualityhouse.com/build3/index.php")
-        self.driver.set_window_size(1920, 1080)
         self.driver.find_element(By.LINK_TEXT, "Login").click()
         self.driver.find_element(By.ID, "username").send_keys("student2")
         self.driver.find_element(By.NAME, "userpass").send_keys("stpass2")
@@ -33,8 +31,6 @@ class TestLoginuserone():
         assert self.driver.find_element(By.CSS_SELECTOR, "a[href='index.php?page=login']").is_displayed(), "User is not logged out."
 
     def test_testloginuserthree(self):
-        self.driver.get("http://acme.qualityhouse.com/build3/index.php")
-        self.driver.set_window_size(1920, 1080)
         self.driver.find_element(By.LINK_TEXT, "Login").click()
         self.driver.find_element(By.ID, "username").click()
         self.driver.find_element(By.ID, "username").send_keys("student3")
@@ -45,8 +41,6 @@ class TestLoginuserone():
         assert self.driver.find_element(By.CSS_SELECTOR, "a[href='index.php?page=login']").is_displayed(), "User is not logged out."
 
     def test_loginuserssequentually(self):
-        self.driver.get("http://acme.qualityhouse.com/build3/index.php")
-        self.driver.set_window_size(1920, 1080)
         self.driver.find_element(By.LINK_TEXT, "Login").click()
         self.driver.find_element(By.ID, "username").send_keys("student1")
         self.driver.find_element(By.NAME, "userpass").send_keys("stpass1")
